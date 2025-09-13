@@ -9,32 +9,42 @@
 </head>
 <body>
     <div class="container">
+
         <div class="main-heading">
                 <h1>My Blog</h1>
         </div>
+
         <div class="blog-post-btn">
-            <a href="">New Post</a>
+            <a href="/new">New Post</a>
         </div>
+
+        <% posts.forEach(post => { %>
         <div class="post-heading">
-            <h2>The Rise of Decentralized Finance</h2>
+            <h2><%= post.title %></h2>
         </div>
+
         <div class="time-and-author">
-            2023-08-01T10:00:00Z
+            <%= post.date %>
         </div>
+
         <div class="post-content">
-            Decentralized Finance (DeFi) is an emerging and rapidly evolving field in the blockchain industry. It refers to the shift from traditional, centralized financial systems to peer-to-peer finance enabled by decentralized technologies built on Ethereum and other blockchains. With the promise of reduced dependency on the traditional banking sector, DeFi platforms offer a wide range of services, from lending and borrowing to insurance and trading.
+            <%= post.content %>
         </div>
+
         <div class="time-and-author">
-            By: Alex Thompson
+            By: <%= post.author %>
         </div>
+
         <div class="modification">
             <div class="edit">
-                <a href="">Edit</a>
+                <a href="/edit/<%= post.id %>" >Edit</a>
             </div>
+
             <div class="delete">
-                <a href="">Delete</a>
+                <a href="/api/posts/delete/<%= post.id %>">Delete</a>
             </div>
     </div>
+     <% }) %>
     
 </body>
 </html>

@@ -21,19 +21,20 @@ textarea:focus {
     border-color:#007bff ;
 }
 
-.submit-btn{
+button{
     height: 40px;
     width: 100%;
     background-color: #007bff;
     border-radius: 5px;
     color: white;
     margin-top: 20px;
-    display: flex;
+    cursor: pointer;
+   
+}
+
+.submit-btn {
+     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.submit-btn a{
-    color: white;
-    text-decoration: none;
-}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/modify.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="main-heading">
+            <h1><%= heading %></h1>
+        </div>
+        <% if(locals.post) { %>
+             <form action="/api/posts/<%= post.id %>" method="post">
+            <div class="post-title">
+                <input type="text" placeholder="Title" name="title" value="<%= post.title %>" required>
+            </div>
+            <div class="post-content">
+                <textarea name="content" required> <%= post.content %></textarea>
+            </div>
+            <div class="author">
+                <input type="text" placeholder="Author" name="author" value="<%= post.author %>" required>
+            </div>
+            <div class="submit-btn">
+                <button type="submit"> <%= submit %> </button>
+            </div>
+        </form>  
+
+        <% } else { %>
+        
+        <form action="/api/posts" method="post">
+            <div class="post-title">
+                <input type="text" placeholder="Title" name="title"  required>
+            </div>
+            <div class="post-content">
+                <textarea name="content" required></textarea>
+            </div>
+            <div class="author">
+                <input type="text" placeholder="Author" name="author" required>
+            </div>
+            <div class="submit-btn">
+                <button type="submit"> <%= submit %> </button>
+            </div>
+        </form>   
+        <% } %>
+   
+    </div>
+    
+</body>
+</html>
